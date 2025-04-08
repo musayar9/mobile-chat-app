@@ -1,50 +1,65 @@
-# Welcome to your Expo app 👋
+# Expo Clerk Setup - Gerekli Paketler
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Bu proje, Clerk kimlik doğrulama sistemi ile birlikte Expo kullanılarak geliştirilmiştir. Aşağıdaki paketler, kimlik doğrulama, güvenli veri saklama ve native ayarları yapılandırmak için kullanılmaktadır.
 
-## Get started
+## 📦 Yüklenen Paketler
 
-1. Install dependencies
+### 🔐 `expo-security-store`
 
-   ```bash
-   npm install
-   ```
+**Amaç:**  
+Güvenli bir şekilde küçük verileri (örneğin oturum tokenları) cihazda saklamanızı sağlar.
 
-2. Start the app
+**Ne zaman kullanılır?**  
+- Tokenları güvenli şekilde saklamak için
+- Kullanıcı oturumunun açık olup olmadığını kontrol ederken
 
-   ```bash
-    npx expo start
-   ```
+**Platform desteği:**  
+- Android’de EncryptedSharedPreferences
+- iOS’ta Keychain kullanır
 
-In the output, you'll find options to open the app in a
+---
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+### 🔑 `expo-auth-session`
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+**Amaç:**  
+OAuth 2.0 tabanlı kimlik doğrulama işlemlerini (Google, GitHub, Facebook ile giriş vb.) yönetir.
 
-## Get a fresh project
+**Ne zaman kullanılır?**  
+- Sosyal medya girişleri
+- Clerk ile birlikte auth flow kurarken
 
-When you're ready, run:
+**Avantajı:**  
+Hem web hem de mobil platformlarda sorunsuz çalışır.
+
+---
+
+### 🔐 `expo-crypto`
+
+**Amaç:**  
+Kriptografik işlemler için kullanılır. Örneğin, SHA-256 hash üretmek ya da UUID oluşturmak gibi işlemler için idealdir.
+
+**Ne zaman kullanılır?**  
+- Şifreleme ve veri doğrulama
+- Güvenli token üretimi
+
+---
+
+### ⚙️ `expo-build-properties`
+
+**Amaç:**  
+Expo projelerinde native build ayarlarını (`minSdkVersion`, `targetSdkVersion` vs.) programlı olarak değiştirmenizi sağlar.
+
+**Ne zaman kullanılır?**  
+- Expo'dan eject etmeden native ayarları özelleştirmek gerektiğinde
+
+**Avantajı:**  
+Android ve iOS tarafında native yapılandırmalar yapabilmenizi sağlar.
+
+---
+
+## ✅ Kurulum Komutu
+
+Aşağıdaki komutu çalıştırarak gerekli paketleri yükleyebilirsiniz:
 
 ```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+npx expo install expo-security-store expo-auth-session expo-crypto expo-build-properties
