@@ -63,3 +63,30 @@ Aşağıdaki komutu çalıştırarak gerekli paketleri yükleyebilirsiniz:
 
 ```bash
 npx expo install expo-security-store expo-auth-session expo-crypto expo-build-properties
+
+```
+#### Slot
+
+
+Expo Router'da Slot bileşeni, düzen (layout) dosyalarında çocuk (nested) rotaların nereye render edileceğini belirlemek için kullanılan bir placeholder'dır. Örneğin:
+
+- Bir layout dosyasında, uygulamanın genel yapısını tanımlarsınız.
+- Bu dosya içerisinde <Slot /> ekleyerek, alt rota (child route) bileşenlerinin nereye yerleşeceğini belirtmiş olursunuz.
+
+Örnek kullanım:
+
+```tsx
+import { Slot } from 'expo-router';
+import { View, Text } from 'react-native';
+
+export default function Layout() {
+  return (
+    <View style={{ flex: 1 }}>
+      <Text>Genel Başlık</Text>
+      {/* Alt rotalar buraya render edilecektir */}
+      <Slot />
+    </View>
+  );
+}
+```
+Bu yapı, uygulama içinde tutarlı bir görünüm sağlar ve alt rotalara ortak özellikler eklemenize olanak tanır. Slot kullanımı sayesinde, nested layout'lar oluşturmak ve uygulamanın belirli bölümlerinde farklı içerikleri yönetmek daha kolay hale gelir.

@@ -15,7 +15,12 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.sayarmusa.modernchatvideo",
+      "associatedDomains": [
+        "applinks:poetic-ghost-69.clerk.accounts.dev",
+        "webcredentials:poetic-ghost-69.clerk.accounts.dev"
+      ]
     },
     "web": {
       "bundler": "metro",
