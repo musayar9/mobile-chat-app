@@ -20,6 +20,22 @@
       "associatedDomains": [
         "applinks:poetic-ghost-69.clerk.accounts.dev",
         "webcredentials:poetic-ghost-69.clerk.accounts.dev"
+      ],
+      "intentFilters": [
+        {
+          "action": "VIEW",
+          "autoVerify": true,
+          "data": [
+            {
+              "scheme": "https",
+              "host": "poetic-ghost-69.clerk.accounts.dev"
+            }
+          ],
+          "category": [
+            "BROWSABLE",
+            "DEFAULT"
+          ]
+        }
       ]
     },
     "web": {
@@ -39,10 +55,20 @@
         }
       ],
       "expo-secure-store",
-      "expo-build-properties"
+      [
+        "expo-build-properties"
+      ]
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "aa884395-e149-494c-afe8-f8e55a80b63f"
+      }
     }
   }
 }

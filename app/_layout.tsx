@@ -3,7 +3,7 @@ import { ClerkLoaded, ClerkProvider } from "@clerk/clerk-expo";
 import { passkeys } from "@clerk/expo-passkeys";
 import { tokenCache } from "@/utils/cache";
 import { ThemeProvider, DarkTheme } from "@react-navigation/native";
-import { StatusBar } from "react-native";
+import { Platform, StatusBar } from "react-native";
 
 let passkeysOption = undefined;
 
@@ -21,11 +21,13 @@ export default function RootLayout() {
   if (!publishableKey) {
     throw new Error("Missing Publishable Key");
   }
+
+  // console.log("passkeysOption", passkeys);
   return (
     <ClerkProvider
       publishableKey={publishableKey}
       tokenCache={tokenCache}
-      __experimental_passkeys={passkeys}
+      __experimental_passkeys={passkeysOption}
     >
       <StatusBar translucent backgroundColor={"transparent"} />
       <ClerkLoaded>
