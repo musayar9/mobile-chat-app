@@ -16,8 +16,9 @@ const RootLayout = () => {
         name="index"
         options={{
           headerLargeTitle: true,
-          headerTitle: "Chat Rooms",
+          headerTitle: ` ${user?.fullName}`,
           headerStyle: {
+            flexDirection: "column",
             paddingVertical: 20,
           },
 
@@ -57,6 +58,21 @@ const RootLayout = () => {
           //     <IconSymbol name="chevron.left"/>
           //   </Link>
           // }
+        }}
+      />
+
+      <Stack.Screen
+        name="[chat]"
+        options={{
+          headerTitle: "Chat",
+        }}
+      />
+
+      <Stack.Screen
+        name="settings/[chat]"
+        options={{
+          headerTitle: "Room Settings",
+          presentation: "modal",
         }}
       />
     </Stack>
