@@ -8,6 +8,18 @@ import { chatRooms } from "@/utils/test-data";
 import { IconSymbol } from "@/components/IconSymbol";
 import { colors } from "@/utils/colors";
 import ItemTitle, { ItemTitleDescription } from "@/components/ItemTitle";
+
+
+
+// import { Client, Account, ID } from 'react-native-appwrite';
+
+// const client = new Client()
+//     .setProject('67fa317d0001e589b8cc')
+//     .setPlatform('com.sayarmusa.modernchatvideo');
+
+
+
+
 const index = () => {
   const { signOut } = useAuth();
   const { user } = useUser();
