@@ -22,7 +22,7 @@ const index = () => {
   const [errors, setErrors] = useState<ClerkAPIError[]>([]);
   const { setActive, signIn } = useSignIn();
   const handleSignInWithGoogle = async () => {
-    console.log("sginged");
+    console.log("sginged", signIn, setActive, user);
     try {
       const { createdSessionId, setActive } = await startSSOFlow({
         strategy: "oauth_google",
@@ -31,7 +31,7 @@ const index = () => {
 
       if (createdSessionId) {
         setActive({ session: createdSessionId });
-        // router.push("/(chat)");
+        router.push("/(chat)");
       } else {
         // there is  no session
       }

@@ -1,9 +1,12 @@
 interface ChatRoom {
-  id: string;
+  $id: string;
   title: string;
   description: string;
-  createdAt: Date;
-  updatedAt: Date;
+  $createdAt: Date;
+  $updatedAt: Date;
+  $permissions: any[];
+  $databaseId: string;
+  $collectionId: string;
 }
 
 interface Message {

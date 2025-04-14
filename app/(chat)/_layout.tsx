@@ -1,11 +1,12 @@
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React from "react";
-import { Link, Redirect, Stack } from "expo-router";
+import { Link, Redirect, Stack, useRouter } from "expo-router";
 import { useUser } from "@clerk/clerk-expo";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { IconSymbol } from "@/components/IconSymbol";
 
 const RootLayout = () => {
+  const router = useRouter();
   const { isSignedIn, user } = useUser();
   if (!isSignedIn) {
     return <Redirect href={"/(auth)"} />;
@@ -40,6 +41,13 @@ const RootLayout = () => {
             <Link href="/new-room">
               <Text style={{ fontSize: 24, color: "#fff" }}>+</Text>
             </Link>
+
+            // <TouchableOpacity
+            //   onPress={() => router.push("/new-room")}
+            //   style={{ padding: 20, zIndex:100 }}
+            // >
+            //   <Text style={{ fontSize: 24, color: "#fff" }}>+</Text>
+            // </TouchableOpacity>
           ),
         }}
       />

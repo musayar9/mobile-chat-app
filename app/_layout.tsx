@@ -1,5 +1,5 @@
 import { Slot, Stack } from "expo-router";
-import { ClerkLoaded, ClerkProvider } from "@clerk/clerk-expo";
+import { ClerkLoaded, ClerkProvider, useUser } from "@clerk/clerk-expo";
 import { passkeys } from "@clerk/expo-passkeys";
 import { tokenCache } from "@/utils/cache";
 import { ThemeProvider, DarkTheme } from "@react-navigation/native";
@@ -21,6 +21,7 @@ export default function RootLayout() {
   if (!publishableKey) {
     throw new Error("Missing Publishable Key");
   }
+
 
   // console.log("passkeysOption", passkeys);
   return (
